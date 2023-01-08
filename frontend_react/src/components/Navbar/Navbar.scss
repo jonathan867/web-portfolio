@@ -1,0 +1,177 @@
+.app__navbar {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // moves list to left?
+
+    padding: 1rem 2rem; // padding around logo and list
+    background: rgba(225, 255, 255, 0.25); // rbg and opacity
+    backdrop-filter: blur(4px); // blurred background
+    -webkit-backdrop-filter: blur(4px); // used since the backdrop property is not availaible on all browsers
+
+    border: 1px solid rgba(225, 255, 255, 0.19);
+    //border: 3px solid rgba(0, 0, 0, 0.19);
+    position: fixed; // fixes the position to the top of the window while you scroll
+    z-index: 2; // makes bar appear above content
+
+}
+
+.app__navbar-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+        // you can nest properties: this targets the img tag inside the <div className = "app__navbar-logo"> tag
+        width: 90px; // image sizing
+        height: 35px;
+
+        @media screen and (min-width: 2000px) {
+            // for larger devices
+            width: 180px;
+            height: 40px;
+        }
+    }
+}
+
+.app__navbar-links {
+    flex: 1; // makes list take up the space that logo does not
+    display: flex; // makes list appear in a row
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+
+    li {
+        // style elements in the list
+        margin: 0 1rem;
+        cursor: pointer; // changes hover cursor
+        flex-direction: column;
+
+        div {
+            // targets the empty div (space above links
+            width: 5px;
+            height: 5px;
+            background: transparent;
+            border-radius: 50%; // creates a circle
+
+            margin-bottom: 5px;
+
+        }
+
+        a {
+            color: var(--black-color); // uses colors in index.css
+            text-decoration: none; // removes link underline
+            flex-direction: column;
+            text-transform: uppercase;
+            font-weight: 500; // bolder font
+
+            transition: all 0.3s ease-in-out; // time it takes to shift color
+
+            &:hover {
+                // & refers to class it is inside of 
+                color: var(--secondary-color);
+            }
+        }
+
+        &:hover {
+            div {
+                background: var(--secondary-color);
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        display: none; // if the screen is less than N pixels, it will not display the list
+    }
+}
+
+.app__navbar-menu {
+    width: 35px; // properties of the menu button
+    height: 35px;
+    border-radius: 50%;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+
+    svg {
+        width: 70%;
+        height: 70%;
+        color: var(--white-color); // alters the colour of the icon
+    }
+
+
+    div {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 5;
+
+        padding: 1rem;
+
+        width: 80%;
+        height: 100vh; // vh is veritcal height
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+
+        background: url('../../assets/bgWhite.png'); // background image
+        background-color: var(--white-color);
+        background-size: cover;
+        background-repeat: repeat;
+
+        box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15); //shadow of the sidebar
+
+        svg { // close Icon properties
+            width: 35px;
+            height: 35px;
+            color: var(--secondary-color);
+            margin: 0.5rem 1rem;
+        }
+
+        ul {
+            list-style: none; // removes bullet points?
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+
+            li {
+                margin: 1rem;
+
+                a { //colour of the links
+                    color: var(--gray-color);
+                    text-decoration: none; // remove link underline
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    font-weight: 500;
+
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                        color: var(--secondary-color);
+                    }
+                }
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            display: none; // if screen is over n pixels, the side menu disappears
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+        display: none; // if screen is over n pixels, the menu button disappears
+    }
+}

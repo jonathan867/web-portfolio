@@ -1,0 +1,53 @@
+.app__outerBox {
+    margin-top: 2rem;
+
+    .app__textBox {
+        width: 40%;
+        padding: 1rem;
+        h1 {
+            font-size: 30px;
+            padding-bottom: 1rem;
+        }
+        @media screen and (min-width: 950px) {// when it exceeds 800px
+            width: 300px;
+            padding: 1.25rem;
+        }
+        @media screen and (max-width: 800px) {
+            // when it exceeds 800px
+            width: 60%;
+            padding: 1.25rem;
+            flex-direction: column;
+        }
+    }
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+    }
+}
+
+.app__headshot {
+
+    width: 50%;
+    //flex-direction: column;
+
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--secondary-color);
+    color: #000;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+
+    @media screen and (min-width: 800px) { // when it exceeds 800px
+        width: 310px;
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+    }
+}
+
+.app__box {
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    }
+}
